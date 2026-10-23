@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#075e54">
+  <title>QuickChat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="avatar">Q</div>
+      <div class="heading">
+        <strong>QuickChat</strong>
+        <span id="status">Simple. Fast. Temporary.</span>
+      </div>
+    </header>
+
+    <section id="home" class="panel">
+      <h1>Just you and your chat.</h1>
+      <p>No account. No phone number. Just messages.</p>
+
+      <label for="name">Your nickname</label>
+      <input id="name" maxlength="24" placeholder="Enter a nickname">
+
+      <button id="create">Create a chat link</button>
+
+      <div id="share" hidden>
+        <p>Share this link with one person:</p>
+        <input id="link" readonly>
+        <button id="copy">Copy link</button>
+      </div>
+      <p id="homeError" class="error"></p>
+    </section>
+
+    <section id="chat" hidden>
+      <div class="notice">
+        Temporary room. Messages are not saved to a database.
+      </div>
+      <div id="messages" class="messages"></div>
+      <form id="form" class="composer">
+        <input id="text" maxlength="2000"
+          autocomplete="off" placeholder="Type a message..." required>
+        <button aria-label="Send message">➤</button>
+      </form>
+      <p id="chatError" class="error"></p>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
